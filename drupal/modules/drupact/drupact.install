@@ -1,0 +1,6 @@
+<?php
+
+
+function drupact_schema() {}
+
+function drupact_install() {}

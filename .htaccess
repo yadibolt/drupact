@@ -1,0 +1,24 @@
+RewriteEngine On
+
+# prevent loops
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+
+# serve drupal requests
+RewriteCond %{REQUEST_URI} ^/drupal/(.*)
+RewriteCond %{DOCUMENT_ROOT}/drupal/%1 -f [OR]
+RewriteCond %{DOCUMENT_ROOT}/drupal/%1 -d
+RewriteRule ^drupal/(.*)$ drupal/$1 [L]
+
+RewriteRule ^drupal/?$ drupal/ [L]
+
+# other requests - serve react
+RewriteCond %{REQUEST_URI} !^/drupal/
+RewriteCond %{DOCUMENT_ROOT}/react/dist/$1 -f [OR]
+RewriteCond %{DOCUMENT_ROOT}/react/dist/$1 -d
+RewriteRule ^(.*)$ react/dist/$1 [L]
+
+# serve fallback
+RewriteCond %{REQUEST_URI} !^/drupal/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ react/dist/index.html [L]

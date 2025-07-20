@@ -1,0 +1,31 @@
+# project
+.osp
+.vscode
+.idea
+.git
+
+# drupal composer vendor
+drupal/vendor
+drupal/example.gitignore
+drupal/INSTALL.txt
+drupal/README.md
+drupal/autoload.php
+drupal/.gitignore
+drupal/.gitattributes
+
+# drupal folders - source files
+drupal/sites/
+drupal/sites/default
+drupal/sites/default/*
+drupal/sites/*/settings*.php
+drupal/sites/*/services*.yml
+drupal/sites/*/files
+drupal/sites/*/private
+
+# drupal folders - unused folders
+drupal/recipes
+drupal/profiles
+
+# react
+react/dist
+react/node_modules

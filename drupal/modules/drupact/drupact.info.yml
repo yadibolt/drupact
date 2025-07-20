@@ -1,0 +1,5 @@
+name: Drupact
+description: Drupact connector module that provides base communication layer.
+package: Drupact
+type: module
+core_version_requirement: ^11
