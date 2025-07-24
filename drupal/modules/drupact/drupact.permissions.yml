@@ -1,0 +1,4 @@
+drupact access configuration:
+  title: "[Drupact] Access configuration"
+  description: "todo"
+  restrict access: true

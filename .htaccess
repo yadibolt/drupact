@@ -1,24 +1,25 @@
 RewriteEngine On
 
-# prevent loops
+# Prevent infinite loops
 RewriteCond %{ENV:REDIRECT_STATUS} ^$
 
-# serve drupal requests
+# Handle drupal requests - check if file/directory exists in drupal folder
 RewriteCond %{REQUEST_URI} ^/drupal/(.*)
 RewriteCond %{DOCUMENT_ROOT}/drupal/%1 -f [OR]
 RewriteCond %{DOCUMENT_ROOT}/drupal/%1 -d
 RewriteRule ^drupal/(.*)$ drupal/$1 [L]
 
+# Handle drupal root request
 RewriteRule ^drupal/?$ drupal/ [L]
 
-# other requests - serve react
+# Handle all other requests - serve from react folder if file exists
 RewriteCond %{REQUEST_URI} !^/drupal/
 RewriteCond %{DOCUMENT_ROOT}/react/dist/$1 -f [OR]
 RewriteCond %{DOCUMENT_ROOT}/react/dist/$1 -d
-RewriteRule ^(.*)$ react/dist/$1 [L]
+RewriteRule ^(.*)$ react/$1 [L]
 
-# serve fallback
+# Fallback for React SPA routing (when file doesn't exist)
 RewriteCond %{REQUEST_URI} !^/drupal/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ react/dist/index.html [L]
+RewriteRule ^(.*)$ react/index.html [L]

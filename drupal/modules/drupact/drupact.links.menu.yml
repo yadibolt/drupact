@@ -1,0 +1,5 @@
+drupact.links.configuration:
+  title: Drupact
+  description: "Drupact module for Drupal"
+  route_name: drupact.route.configuration
+  parent: system.admin_config_services

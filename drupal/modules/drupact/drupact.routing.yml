@@ -1,0 +1,7 @@
+drupact.route.configuration:
+  path: "/admin/config/services/drupact/configuration"
+  defaults:
+    _title_callback: \Drupal\drupact\Controller\ConfigurationController::getFormTitleCallback
+    _form: \Drupal\drupact\Form\ConfigurationForm
+  requirements:
+    _permission: "drupact access configuration"
