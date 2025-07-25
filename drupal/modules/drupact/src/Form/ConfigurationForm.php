@@ -3,8 +3,6 @@
 namespace Drupal\drupact\Form;
 
 use Drupal\drupact\Extend\core\Filesystem\Filesystem;
-use Drupal\drupact\Logger;
-use DirectoryIterator;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;

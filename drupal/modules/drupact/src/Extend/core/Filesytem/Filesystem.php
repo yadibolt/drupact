@@ -15,6 +15,14 @@ class Filesystem {
 
   public function __construct() {}
 
+  /**
+   * Walks through the API directory and validates each file.
+   * Each file in the application interface directory must implement
+   * the \Drupal\drupact\Extend\core\Endpoint\IEndpoint interface.
+   *
+   * @return array|null
+   *   Returns null if the directory is empty or if an error occurs.
+   */
   public function walkApiDir(): array|null {
     try {
       foreach (new DirectoryIterator(self::API_DIR) as $fi) {
